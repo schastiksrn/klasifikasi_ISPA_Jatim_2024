@@ -1,0 +1,57 @@
+==============================================================
+1. VALIDASI CLUSTER (silhouette, data 2024, blok A)
+==============================================================
+ k  kmeans  ward
+ 2   0.377 0.290
+ 3   0.364 0.359
+ 4   0.381 0.372
+ 5   0.413 0.419
+ 6   0.395 0.364
+
+Catatan: k=3 diwajibkan oleh kebutuhan kategori rendah/sedang/tinggi.
+
+Metode terbaik pada k=3: KMEANS (silhouette 0.364)
+
+==============================================================
+2. PROFIL TIAP KATEGORI
+==============================================================
+         n  rate_pneu  prop_berat    iku  sanitasi  kepadatan
+label                                                        
+rendah  13      22.57       47.28  89.24     78.45     761.69
+sedang  16      40.74       49.40  86.40     84.87    1890.31
+tinggi   9      49.05       43.50  89.42     84.80    3790.33
+
+==============================================================
+3. UJI STABILITAS (50 seed berbeda, ARI terhadap label utama)
+==============================================================
+ARI rata-rata = 0.926 | terendah = 0.679
+(ARI 1,0 = identik; > 0,8 = sangat stabil)
+
+==============================================================
+4. KLASIFIKASI (LOOCV, n=38, fitur blok B)
+==============================================================
+        model  akurasi  macroF1
+Random Forest    0.342    0.364
+       LogReg    0.553    0.551
+        KNN-5    0.500    0.518
+      Tree-d3    0.500    0.504
+
+Tebak acak 3 kelas = 0.333
+
+Feature importance (RF, seluruh data):
+  kepadatan    0.352
+  iku          0.325
+  sanitasi     0.323
+
+Laporan per kelas (RF, LOOCV):
+              precision    recall  f1-score   support
+
+      rendah       0.36      0.38      0.37        13
+      sedang       0.25      0.25      0.25        16
+      tinggi       0.50      0.44      0.47         9
+
+    accuracy                           0.34        38
+   macro avg       0.37      0.36      0.36        38
+weighted avg       0.35      0.34      0.34        38
+
+tersimpan: output\cluster_labels_2024.csv

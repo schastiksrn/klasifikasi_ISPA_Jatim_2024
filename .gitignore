@@ -1,0 +1,16 @@
+# Kredensial — jangan pernah di-commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Sistem operasi
+Thumbs.db
+desktop.ini
+
+# Berkas besar: aktifkan bila PDF sumber tidak ingin ikut ke repo
+# data/raw/*.pdf
