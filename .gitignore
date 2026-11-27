@@ -14,3 +14,16 @@ desktop.ini
 
 # Berkas besar: aktifkan bila PDF sumber tidak ingin ikut ke repo
 # data/raw/*.pdf
+
+# Arsip kerja — disimpan lokal, tidak ikut repo
+ANALYSIS_STATE.ipynb
+Pembagian Pengerjaan Proposal Data Wrangling.pdf
+data/raw/105__*_profil-kesehatan-2025-*.pdf
+data/raw/data_curah_hujan_mentah/
+data/processed/*_2025.csv
+output/extract/
+output/pilot_label.csv
+scripts/pilot_pipeline.py
+scripts/bps_probe.py
+scripts/bps_detail.py
+scripts/extract_tabel_pdf.py
