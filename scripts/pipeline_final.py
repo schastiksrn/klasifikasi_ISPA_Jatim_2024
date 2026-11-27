@@ -121,7 +121,12 @@ def main():
     print("\n" + "=" * 62)
     print("4. KLASIFIKASI (LOOCV, n=38, fitur blok B)")
     print("=" * 62)
-    Xb = df[BLOK_B].to_numpy(float)
+    # aturan yang sama seperti F.2.6: log1p untuk kemencengan positif > 1
+    Xb = df[BLOK_B].copy()
+    for c in BLOK_B:
+        if Xb[c].skew() > 1:
+            Xb[c] = np.log1p(Xb[c])
+    Xb = Xb.to_numpy(float)
     y = df["label"].to_numpy(object)
     loo = LeaveOneOut()
     model = {

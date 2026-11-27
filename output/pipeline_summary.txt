@@ -32,8 +32,8 @@ ARI rata-rata = 0.926 | terendah = 0.679
 ==============================================================
         model  akurasi  macroF1
 Random Forest    0.342    0.364
-       LogReg    0.553    0.551
-        KNN-5    0.500    0.518
+       LogReg    0.553    0.555
+        KNN-5    0.447    0.473
       Tree-d3    0.500    0.504
 
 Tebak acak 3 kelas = 0.333
